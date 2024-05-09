@@ -1,0 +1,43 @@
+app.component.html
+<h1>profile management</h1><br>
+<input type="text" #name placeholder="enter your name" name="name" ><br>
+<input type="text" #address placeholder="enter your address" name="address" ><br>
+<input type="text" #contact placeholder="enter you contact" name="contact"><br>
+<input type="email" #email placeholder="enter your email" name="email">
+<br>
+<button (click)="getValue(name.value, address.value, contact.value, email.value)">Click me</button>
+<h1>your registration data</h1>
+<p>name:{{displayname}}</p>
+<p>address:{{displayaddress}}</p>
+<p>contact:{{displaycontact}}</p>
+<p>email:{{displayemail}}</p>
+
+
+
+
+app.component.ts
+
+  import { Component } from '@angular/core';
+  import { RouterOutlet } from '@angular/router';
+
+  @Component({
+    selector: 'app-root',
+    standalone: true,
+    imports: [RouterOutlet],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css'
+  })
+  export class AppComponent {
+    title = 'prac1';
+    displayname="";
+    displayaddress="";
+    displaycontact="";
+    displayemail="";
+
+    getValue(name:string,address:string,contact:string,email:string){
+      this.displayname=name;
+      this.displayaddress=address;
+      this.displaycontact=contact;
+      this.displayemail=email;
+    }
+  }
